@@ -1,7 +1,7 @@
 #!/bin/bash
 
 data=$(wget --no-check-certificate -O - https://www.ynetnews.com/category/3082 2>/dev/null)
-articles=$(echo "$data" | grep -oP "https://www.ynetnews.com/article/[0-9a-zA-Z]{9}" | sort -u)
+articles=$(echo "$data" | grep -oP "https://www.ynetnews.com/article/[0-9a-zA-Z]+" | sort -u)
 num_links="$(echo "$articles" | wc -l)"
 
 function name_count() {
